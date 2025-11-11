@@ -1,0 +1,28 @@
+Download the dataset from (https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud/data)
+
+download Libs (scikit-learn, pandas, numpy, flask)
+
+Explaination: 
+This dataset was too imbalanced so i used Random Forest Classifier to avoid overfitting.
+
+I used this code to make it work right: 
+model = RandomForestClassifier(
+    n_estimators=200,
+    max_depth=10,           # limit depth
+    min_samples_leaf=10,     # require at least 5 samples in leaf
+    class_weight='balanced',
+    random_state=42
+)
+
+class_weight='balanced'
+What it does: This automatically calculates weights for you. It tells the model: "Hey, the 'fraud' class is rare, so when you make a mistake on a fraud transaction, penalize that mistake much more heavily than a mistake on a normal transaction."
+The result: The model becomes much more sensitive to spotting fraud. It would rather accidentally flag a few extra normal transactions as suspicious (false positives) than miss actual fraud (false negatives).
+
+Regularization:
+The other parameters used don't directly handle imbalance, but they prevent overfitting and make the model more robust, which is especially important when working with imbalanced data:
+
+max_depth=10: Prevents the trees from growing too deep and becoming overly complex. A complex model might just memorize the few fraud examples instead of learning general patterns.
+
+min_samples_leaf=10: Ensures that each leaf node (the end of a branch) has at least 10 samples. This stops the tree from creating tiny, specific leaves that only contain one or two fraud cases, which is a classic overfitting trap with rare classes.
+
+n_estimators=200: Uses 200 individual trees. More trees generally make the model more stable and reliable.
