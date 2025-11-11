@@ -125,7 +125,7 @@ n_estimators=200:
 
 
 <h4>Streamlit Front End  </h4>
-<img src="[images\streamlit frontend.png](https://github.com/khuzaima2182/FraudDetectPro/blob/main/images/Confusion%20Matrix.png)" alt="Feature Importance" style="width:600px; border:1px solid #ddd; border-radius:8px;">
+<img src="images\Streamlit Front End " alt="Feature Importance" style="width:600px; border:1px solid #ddd; border-radius:8px;">
 
 <h4> Flask API Response </h4>
 <img src="images\Flask API.png" alt="Feature Importance" style="width:600px; border:1px solid #ddd; border-radius:8px;">
